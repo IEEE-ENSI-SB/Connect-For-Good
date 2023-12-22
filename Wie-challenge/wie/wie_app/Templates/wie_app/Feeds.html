@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="feeds">
+    {% if request.user.role == "admin" %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="pubCreate">
+                {{add_post.media}}
+                {{add_post.body}}
+            </div>
+            <input type="submit" value="Post" id="createPub">
+        </form>
+        <br><br>
+    {% endif %}
+    {% for post in posts %}
+        <!--<a href="{% url 'Post_view' post.pk %}" class="postStyle"></a>-->
+        <div class="pub">
+            <div class="entete">
+                <img src="../../../static/images/default_image.jpg" class="imgpub" alt="">
+                <div id="publishedBy">
+                    <span class="admin">Wie Community</span>
+                    <small class="Date">, {{post.date}}</small>
+                </div>
+            </div>
+            <div>
+                {{post.body|safe}}
+            </div>
+            {% if request.user.role != 'admin' %}
+                <form action="" method="POST" style="display: flex;justify-content: end;">
+                    {% csrf_token %}
+                    <input type="text" value="join" hidden>
+                    <input type="submit" value="Join" id="join" disabled>
+                </form>
+            {% else  %}
+                <form action="" method="POST" style="display: flex;justify-content: end;">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete" id="join" disabled>
+                </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

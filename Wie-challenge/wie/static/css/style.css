@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans&display=swap');
+body{
+    background: linear-gradient(90deg, #06005A 0%, #741B47 100%);
+    background-attachment: fixed;
+    margin: 0px 0px 50px 0px;
+    font-family: 'Rethink Sans', sans-serif;
+}
+/*Scroll bar styling*/
+
+body {
+    --sb-track-color: #741B47;
+    --sb-thumb-color: #06005A   ;
+    --sb-size: 10px;
+  
+    scrollbar-color: var(--sb-thumb-color) 
+                     var(--sb-track-color);
+  }
+  
+  body::-webkit-scrollbar {
+    width: var(--sb-size) 
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 0px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: px;
+    
+    }
+/*------------------*/
+/* For desktop view */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 10px 20px;
+    margin:auto;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0 80px;
+}
+.navbar-links li:last-child {
+    position: absolute;
+    right: 80px;
+}
+
+.navbar-links li {
+    margin-right: 20px;
+    font-size: 2rem;
+    font-family:  'Rethink Sans', sans-serif;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* For mobile view */
+.navbar-toggle {
+    display: none;
+}
+
+.container .title{
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 0;
+}
+.container .card{
+    color: #001F3F !important;
+    font-size: 1.2rem;
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 25px;
+    border: 20px solid #fff;
+    border-width: 80%;
+    max-width: 500px;
+    max-height: 700px;
+    width: 80%;
+    height: 100%;
+    background-color: #D9CDD9;
+}
+
+.custom-file-upload {
+    margin: auto;
+    margin-top: 15px;
+    border: 2px solid #000;
+    width: max-content;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: 0.5s all;
+    &:hover {
+        background-color: #b6acb6;
+    }
+}
+.custom-file-upload input[type=file] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.container .card input[type=text], 
+input[type=email], input[type=number]{
+    border: none;
+    border-bottom: 2px solid #000;
+    max-width: 150px;
+    width: 100%;
+    height: 25px;
+    font-size: 1rem;
+    text-align: center;
+    background-color: transparent;
+    margin: 10px 0px;
+}
+.container .card input[type=text]:focus, 
+.container .card input[type=email]:focus, 
+.container .card input[type=number]:focus {
+    outline: none;
+}
+.container .card select{
+    background: transparent;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px 0px 20px auto;
+}
+.container .card .formFields{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.container .card #additional_infos{
+    height: 70px;
+    width: 200px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: transparent;
+}
+.add_infos{
+    width: 90%;
+    margin: auto;
+}
+.submit input[type=submit]{
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 100px;
+    font-family: 'Rethink Sans', sans-serif;
+    background: transparent;
+    
+    &:focus{
+        outline: none;
+    }
+}
+.submit {
+    margin-top: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.postStyle{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        background-color: #00000026;
+        width: 100%;
+        margin: 10px auto auto auto;
+    }
+    .navbar-links li{
+        font-size: 1.5rem;
+        border-bottom: 1px solid #ffffff57;
+        width: 80%;
+        margin-bottom: 10px;
+    }
+    .navbar-links li:last-child {
+        position: relative;
+        right: auto;
+    }
+    .navbar-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .navbar-toggle {
+        display: block; /* Show burger menu icon */
+        cursor: pointer;
+    }
+
+    .burger-menu {
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .burger-menu.active {
+        transform: rotate(-45deg);
+    }
+    .container .card{
+        font-size: 1rem;
+    }
+}
