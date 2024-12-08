@@ -11,11 +11,16 @@ class CustomUser(AbstractUser):
         default='user',
         blank=False,
         null=False
-    ) 
+    )
     phone = models.CharField(max_length=8, validators=[RegexValidator(r'^\d{8}$', message='Phone number must be 8 digits.')], blank=False, null=False)
+    name = models.CharField(max_length=255, blank=False)  # Add the name field here
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
+
+    def __str__(self):
+        return self.username
+
 
     def __str__(self):
         return self.username
